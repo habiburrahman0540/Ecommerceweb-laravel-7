@@ -66,8 +66,9 @@
                     </div>
                 </div>
                 <div class="form-actions">
+                    <a href="{{route('admin.dashboard')}}"  type="button" class="btn btn-warning">Back</a>
                     <button type="submit" class="btn btn-primary"> {{ __('Reset Password') }}</button>
-                    <button type="button" class="btn">Cancel</button>
+               
                 </div>
                 </form>
                 <!-- END FORM-->

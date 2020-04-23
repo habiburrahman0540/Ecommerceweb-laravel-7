@@ -309,8 +309,8 @@
                   </a>
                   <ul class="sub">
                   <li><a class="" href="{{route('admin.categories')}}">Category</a></li>
-                      <li><a class="" href="">Sub Category</a></li>
-                      <li><a class="" href="">Brand</a></li>
+                  <li><a class="" href="{{route('admin.subcategory')}}">Sub Category</a></li>
+                  <li><a class="" href="{{route('admin.brands')}}">Brand</a></li>
                      
                   </ul>
               </li>
@@ -390,10 +390,23 @@
    <script src="{{asset('backend/')}}/js/easy-pie-chart.js"></script>
    <script src="{{asset('backend/')}}/js/sparkline-chart.js"></script>
    <script src="{{asset('backend/')}}/js/home-page-calender.js"></script>
-   <script src="{{asset('backend/')}}/js/home-chartjs.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
    <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/data-tables/jquery.dataTables.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/data-tables/DT_bootstrap.js"></script>
+ <!--common script for all pages-->
+ 
+ <script src="{{asset('backend/')}}/js/jquery.scrollTo.min.js"></script>
+ <!--script for this page only-->
+ <script src="{{asset('backend/')}}/js/editable-table.js"></script>
+   <script>
+    jQuery(document).ready(function() {
+        EditableTable.init();
+    });
+</script>
+
+
    <script>
     @if(Session::has('messege'))
       var type="{{Session::get('alert-type','info')}}"
@@ -434,6 +447,22 @@
             });
         });
 </script>
+
+<script>
+    $(document).ready(function(){
+        $('.launch-modal').click(function(){
+            $('#myModal').modal({
+                backdrop: 'static'
+            });
+        }); 
+    });
+    </script>
+    <style>
+        .bs-example{
+            margin: 20px;
+        }
+    </style>
+
 
    <!-- END JAVASCRIPTS -->   
 </body>

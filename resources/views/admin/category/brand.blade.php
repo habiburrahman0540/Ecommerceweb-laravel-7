@@ -4,7 +4,7 @@
 <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                   <h3 class="page-title">
-                    Category List
+                    Brand List
                   </h3>
                  
                   <!-- END PAGE TITLE & BREADCRUMB-->
@@ -15,7 +15,7 @@
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget green">
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Category List Table</h4>
+                        <h4><i class="icon-reorder"></i> Brand List Table</h4>
                        <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
@@ -26,7 +26,7 @@
                             <div class="clearfix">
                                 <div class="btn-group">
                                     <div class="pd-y-30 tx-center bg-gray-700">
-                                      <input type="button" class="btn btn-lg btn-primary launch-modal" value="Add New Category">
+                                      <input type="button" class="btn btn-lg btn-primary launch-modal" value="Add New Brand">
                                       </div><!-- pd-y-30 -->
                                     </div>
                                 </div>
@@ -42,7 +42,10 @@
                                      style="width: 238px;">Sl</th>
                                      <th class="sorting" role="columnheader" tabindex="0" 
                                      aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Category Name: activate to sort column ascending" 
-                                     style="width: 352px;">Category Name</th>
+                                     style="width: 352px;">Brand Name</th>
+                                     <th class="sorting" role="columnheader" tabindex="0" 
+                                     aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Category Name: activate to sort column ascending" 
+                                     style="width: 352px;">Brand Logo</th>
                                      
                                      <th class="sorting" role="columnheader" tabindex="0" 
                                      aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Notes: activate to sort column ascending" 
@@ -51,15 +54,16 @@
                                 </thead>
                                 
                             <tbody role="alert" aria-live="polite" aria-relevant="all">
-                                @foreach ($category as $data)
+                                @foreach ($brand as $data)
                                 <tr class="odd">
                                     <td class="  sorting_1">{{$loop->iteration}}</td>
                                     
-                                    <td class="center ">{{$data->category_name}}</td>
+                                    <td class="center ">{{$data->brand_name}}</td>
+                                <td class="center "> <img src="{{URL::to($data->brand_logo)}}" alt="" width="30px" height="30px"></td>
                                     <td>
                                         
-                                    <a href="{{URL::to('edit/category/'.$data->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
-                                    <a href="{{URL::to('category/delete/'.$data->id)}}" class="btn btn-danger" id="delete"><i class="icon-trash "></i></a>
+                                    <a href="{{URL::to('edit/brand/'.$data->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
+                                    <a href="{{URL::to('brand/delete/'.$data->id)}}" class="btn btn-danger" id="delete"><i class="icon-trash "></i></a>
                                     </td>
                                    
                              </tr>
@@ -88,7 +92,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add New Category</h4>
+                    <h4 class="modal-title">Add New Brand</h4>
                 </div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -99,18 +103,23 @@
                     </ul>
                 </div>
             @endif
-                        <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.category')}}" novalidate="novalidate">
+            <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.brand')}}" enctype="multipart/form-data" novalidate="novalidate">
                             @csrf
 
                 <div class="modal-body">
                    
                   <div class="control-group ">
-                    <label for="cname" class="control-label">Category Name</label>
+                    <label for="cname" class="control-label">Brand Name</label>
                     <div class="controls">
-                        <input class="span6 " id="cname" name="category_name" minlength="2" type="text" required="" placeholder="Enter category name.">
+                        <input class="span6 " id="cname" name="brand_name" minlength="2" type="text" required="" placeholder="Enter brand name.">
                     </div>
                 </div>
-                
+                <div class="control-group ">
+                    <label for="clogo" class="control-label">Brand Logo</label>
+                    <div class="controls">
+                        <input  id="clogo"  name="brand_logo" minlength="2" type="file" required="" placeholder="Enter brand logo.">
+                    </div>
+                </div>
 
 
                 </div>

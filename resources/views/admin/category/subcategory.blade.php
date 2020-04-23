@@ -4,7 +4,7 @@
 <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                   <h3 class="page-title">
-                    Category List
+                    Subcategory List
                   </h3>
                  
                   <!-- END PAGE TITLE & BREADCRUMB-->
@@ -15,7 +15,7 @@
                 <!-- BEGIN EXAMPLE TABLE widget-->
                 <div class="widget green">
                     <div class="widget-title">
-                        <h4><i class="icon-reorder"></i> Category List Table</h4>
+                        <h4><i class="icon-reorder"></i> Subcategory List Table</h4>
                        <span class="tools">
                            <a href="javascript:;" class="icon-chevron-down"></a>
                            <a href="javascript:;" class="icon-remove"></a>
@@ -26,7 +26,7 @@
                             <div class="clearfix">
                                 <div class="btn-group">
                                     <div class="pd-y-30 tx-center bg-gray-700">
-                                      <input type="button" class="btn btn-lg btn-primary launch-modal" value="Add New Category">
+                                      <input type="button" class="btn btn-lg btn-primary launch-modal" value="Add New Subcategory">
                                       </div><!-- pd-y-30 -->
                                     </div>
                                 </div>
@@ -41,6 +41,9 @@
                                 <tr role="row"><th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="Sl"
                                      style="width: 238px;">Sl</th>
                                      <th class="sorting" role="columnheader" tabindex="0" 
+                                     aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Subcategory Name: activate to sort column ascending" 
+                                     style="width: 352px;">Subcategory Name</th>
+                                     <th class="sorting" role="columnheader" tabindex="0" 
                                      aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Category Name: activate to sort column ascending" 
                                      style="width: 352px;">Category Name</th>
                                      
@@ -51,15 +54,17 @@
                                 </thead>
                                 
                             <tbody role="alert" aria-live="polite" aria-relevant="all">
-                                @foreach ($category as $data)
+                                @foreach ($subcategory as $data)
                                 <tr class="odd">
-                                    <td class="  sorting_1">{{$loop->iteration}}</td>
+                                    <td class="sorting_1">{{$loop->iteration}}</td>
                                     
+                                    <td class="center ">{{$data->subcategory_name}}</td>
                                     <td class="center ">{{$data->category_name}}</td>
+                               
                                     <td>
                                         
-                                    <a href="{{URL::to('edit/category/'.$data->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
-                                    <a href="{{URL::to('category/delete/'.$data->id)}}" class="btn btn-danger" id="delete"><i class="icon-trash "></i></a>
+                                    <a href="{{URL::to('edit/subcategory/'.$data->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
+                                    <a href="{{URL::to('subcategory/delete/'.$data->id)}}" class="btn btn-danger" id="delete"><i class="icon-trash "></i></a>
                                     </td>
                                    
                              </tr>
@@ -88,7 +93,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add New Category</h4>
+                    <h4 class="modal-title">Add New Subcategory</h4>
                 </div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -99,18 +104,29 @@
                     </ul>
                 </div>
             @endif
-                        <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.category')}}" novalidate="novalidate">
+            <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.subcategory')}}" novalidate="novalidate">
                             @csrf
 
                 <div class="modal-body">
                    
                   <div class="control-group ">
-                    <label for="cname" class="control-label">Category Name</label>
+                    <label for="cname" class="control-label">Subcategory Name</label>
                     <div class="controls">
-                        <input class="span6 " id="cname" name="category_name" minlength="2" type="text" required="" placeholder="Enter category name.">
+                        <input class="span6 " id="cname" name="subcategory_name" minlength="2" type="text" required="" placeholder="Enter Subcategory name.">
                     </div>
                 </div>
-                
+                <div class="control-group ">
+                    <label for="clogo" class="control-label">Category Name</label>
+                    <div class="controls">
+                        <select name="category_id" id="clogo">
+                           
+                            @foreach ($category as $data)
+                        <option value="{{$data->id}}">{{$data->category_name}}</option>
+                            @endforeach
+
+                       </select>
+                    </div>
+                </div>
 
 
                 </div>
