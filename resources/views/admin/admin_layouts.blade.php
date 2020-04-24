@@ -314,6 +314,26 @@
                      
                   </ul>
               </li>
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon-lock"></i>
+                    <span>Coupon discount</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                <li><a class="" href="{{route('admin.coupons')}}">Coupon</a></li>  
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon-lock"></i>
+                    <span>Subscriber</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                <li><a class="" href="{{route('admin.newsletters')}}">Subscriber</a></li>  
+                </ul>
+            </li>
               <li>
               <a class="" href="{{route('admin.logout')}}">
                     <i class="icon-key"></i>
