@@ -20,6 +20,24 @@
    <link href="{{asset('backend/')}}/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
    <link href="{{asset('backend/')}}/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+
+
+ 
+
+   <link href="{{asset('backend/')}}/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/uniform/css/uniform.default.css" />
+
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/bootstrap/css/bootstrap-tagsinput.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/clockface/css/clockface.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/bootstrap-datepicker/css/datepicker.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/bootstrap-timepicker/compiled/timepicker.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/bootstrap-colorpicker/css/colorpicker.css" />
+   <link rel="stylesheet" href="{{asset('backend/')}}/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+   <link rel="stylesheet" type="text/css" href="{{asset('backend/')}}/assets/bootstrap-daterangepicker/daterangepicker.css" />
+
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -334,6 +352,29 @@
                 <li><a class="" href="{{route('admin.newsletters')}}">Subscriber</a></li>  
                 </ul>
             </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon-lock"></i>
+                    <span>Products</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                <li><a class="" href="{{route('add.product')}}">Add Product</a></li>  
+                <li><a class="" href="{{route('all.product')}}">All Product</a></li>  
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon-lock"></i>
+                    <span>Blog</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                <li><a class="" href="{{route('blog.category.list')}}">Blog category</a></li>  
+                <li><a class="" href="{{route('add.blogpost')}}">Add post</a></li>  
+                <li><a class="" href="{{route('all.blog.post')}}">All post</a></li>  
+                </ul>
+            </li>
               <li>
               <a class="" href="{{route('admin.logout')}}">
                     <i class="icon-key"></i>
@@ -384,11 +425,11 @@
    <!-- BEGIN JAVASCRIPTS -->
    <!-- Load javascripts at bottom, this will reduce page load time -->
    <script src="{{asset('backend/')}}/js/jquery-1.8.3.min.js"></script>
+   <script src="{{asset('backend/')}}/assets/bootstrap/js/bootstrap.min.js"></script>
    <script src="{{asset('backend/')}}/js/jquery.nicescroll.js" type="text/javascript"></script>
    <script type="text/javascript" src="{{asset('backend/')}}/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
    <script type="text/javascript" src="{{asset('backend/')}}/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
    <script src="{{asset('backend/')}}/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
-   <script src="{{asset('backend/')}}/assets/bootstrap/js/bootstrap.min.js"></script>
 
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
@@ -400,26 +441,82 @@
    <script src="{{asset('backend/')}}/js/jquery.sparkline.js" type="text/javascript"></script>
    <script src="{{asset('backend/')}}/assets/chart-master/Chart.js"></script>
    <script src="{{asset('backend/')}}/js/jquery.scrollTo.min.js"></script>
-
-
    <!--common script for all pages-->
    <script src="{{asset('backend/')}}/js/common-scripts.js"></script>
-
    <!--script for this page only-->
-
    <script src="{{asset('backend/')}}/js/easy-pie-chart.js"></script>
    <script src="{{asset('backend/')}}/js/sparkline-chart.js"></script>
    <script src="{{asset('backend/')}}/js/home-page-calender.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
    <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
    <script type="text/javascript" src="{{asset('backend/')}}/assets/data-tables/jquery.dataTables.js"></script>
    <script type="text/javascript" src="{{asset('backend/')}}/assets/data-tables/DT_bootstrap.js"></script>
- <!--common script for all pages-->
- 
- <script src="{{asset('backend/')}}/js/jquery.scrollTo.min.js"></script>
  <!--script for this page only-->
  <script src="{{asset('backend/')}}/js/editable-table.js"></script>
+ <script src="{{asset('backend/')}}/js/form-component.js"></script>
+  
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap/js/bootstrap-fileupload.js"></script>
+   <script src="{{asset('backend/')}}/js/jquery.blockui.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+   <script src="{{asset('backend/')}}/js/jQuery.dualListBox-1.3.js" language="javascript" type="text/javascript"></script>
+ <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/uniform/jquery.uniform.min.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/ckeditor/ckeditor.js"></script>
+   
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/clockface/js/clockface.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap/js/bootstrap-tagsinput.min.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-daterangepicker/date.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+   <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+   <script src="{{asset('backend/')}}/assets/fancybox/source/jquery.fancybox.pack.js"></script>
+ 
+   <script type="text/javascript">
+    $(document).ready(function(){
+   $('select[name="category_id"]').on('change',function(){
+        var category_id = $(this).val();
+        if (category_id) {
+          
+          $.ajax({
+            url: "{{url('/get/subcategory/') }}/"+category_id,
+            type:"GET",
+            dataType:"json",
+            success:function(data) { 
+            var d =$('select[name="subcategory_id"]').empty();
+            $.each(data, function(key, value){
+            
+            $('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+
+            });
+            },
+          });
+
+        }else{
+          alert('danger');
+        }
+
+          });
+    });
+
+</script>
+
+   <script language="javascript" type="text/javascript">
+
+       $(function() {
+
+           $.configureBoxes();
+
+       });
+
+   </script>
+      <script>
+        $(function () {
+            $(" input[type=radio], input[type=checkbox]").uniform();
+        });
+    </script>
    <script>
     jQuery(document).ready(function() {
         EditableTable.init();

@@ -56,5 +56,33 @@ Route::post('/update/coupon/{id}','Admin\Category\CouponController@updatecoupon'
 // Subscriber or newsletter list
 Route::get('/admin/newsletters','Admin\Category\CouponController@newsletters')->name('admin.newsletters');
 Route::get('/newsletters/delete/{id}','Admin\Category\CouponController@Deletenewsletters');
+//Product route
+Route::get('admin/product/all','Admin\ProductController@index')->name('all.product');
+Route::get('admin/product/add','Admin\ProductController@create')->name('add.product');
+Route::get('get/subcategory/{category_id}','Admin\ProductController@subcategory');
+Route::post('/admin/product/store','Admin\ProductController@store')->name('store.product');
+Route::get('inactive/product/{id}','Admin\ProductController@inactive');
+Route::get('active/product/{id}','Admin\ProductController@active');
+Route::get('product/delete/{id}','Admin\ProductController@DeleteProduct');
+Route::get('product/view/{id}','Admin\ProductController@ViewProduct');
+Route::get('edit/product/{id}','Admin\ProductController@EditProduct');
+Route::post('update/product/{id}','Admin\ProductController@UpdateProduct');
+
+//Blog route
+Route::get('admin/blog/cat/list','Admin\PostController@Blogcatlist')->name('blog.category.list');
+Route::post('admin/store/blog','Admin\PostController@Blogcatstore')->name('store.blog.category');
+Route::get('blog/cat/delete/{id}','Admin\PostController@Blogcatdelete');
+Route::get('admin/blog/cat/edit/{id}','Admin\PostController@BlogcatEdit');
+Route::post('admin/blog/cat/update/{id}','Admin\PostController@BlogcatUpdate');
+Route::get('admin/add/blog/post','Admin\PostController@Create')->name('add.blogpost');
+Route::post('admin/store/post','Admin\PostController@StoreBlogpost')->name('store.blogpost');
+Route::get('admin/blog/post','Admin\PostController@index')->name('all.blog.post');
+Route::get('post/delete/{id}','Admin\PostController@DeletePost');
+Route::get('post/edit/{id}','Admin\PostController@EditPost');
+Route::post('post/update/{id}','Admin\PostController@UpdatePost');
+Route::get('post/view/{id}','Admin\PostController@ViewPost');
+
+
+
 // All route for Frontend 
 Route::post('store/newsletter','FrontController@StoreNewsletter')->name('store.newsletter');
