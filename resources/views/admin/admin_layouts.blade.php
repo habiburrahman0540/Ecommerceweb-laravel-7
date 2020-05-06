@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!--> <html lang="en-US"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
    <meta charset="utf-8" />
@@ -20,7 +20,8 @@
    <link href="{{asset('backend/')}}/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
    <link href="{{asset('backend/')}}/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
-
+   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+   
 
 
  
@@ -271,8 +272,9 @@
                            </a>
                        </li>
                        <li class="dropdown mtop5">
-                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
-                               <i class="icon-headphones"></i>
+                        
+                           <a class="dropdown-toggle element" data-placement="bottom" id="ecommerce_translate_element" data-toggle="tooltip" href="#" data-original-title="Language">
+                               
                            </a>
                        </li>
                        <!-- END SUPPORT -->
@@ -361,6 +363,7 @@
                 <ul class="sub">
                 <li><a class="" href="{{route('add.product')}}">Add Product</a></li>  
                 <li><a class="" href="{{route('all.product')}}">All Product</a></li>  
+                <li><a class="" href="{{route('product.setting')}}">Product Settings</a></li>  
                 </ul>
             </li>
             <li class="sub-menu">
@@ -443,6 +446,7 @@
    <script src="{{asset('backend/')}}/js/jquery.scrollTo.min.js"></script>
    <!--common script for all pages-->
    <script src="{{asset('backend/')}}/js/common-scripts.js"></script>
+   <script src="{{asset('backend/')}}/js/translate.js"></script>
    <!--script for this page only-->
    <script src="{{asset('backend/')}}/js/easy-pie-chart.js"></script>
    <script src="{{asset('backend/')}}/js/sparkline-chart.js"></script>
@@ -473,7 +477,7 @@
    <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
    <script type="text/javascript" src="{{asset('backend/')}}/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
    <script src="{{asset('backend/')}}/assets/fancybox/source/jquery.fancybox.pack.js"></script>
- 
+   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
    <script type="text/javascript">
     $(document).ready(function(){
    $('select[name="category_id"]').on('change',function(){
@@ -574,6 +578,11 @@
         }); 
     });
     </script>
+  <script type="text/javascript">
+	function googleTranslateElementInit() {
+	  new google.translate.TranslateElement({pageLanguage: 'en'}, 'ecommerce_translate_element');
+	}
+	</script>
     <style>
         .bs-example{
             margin: 20px;

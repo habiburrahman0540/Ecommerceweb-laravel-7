@@ -45,6 +45,10 @@
                                      style="width: 352px;">Category Name</th>
                                      
                                      <th class="sorting" role="columnheader" tabindex="0" 
+                                     aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Category Image: activate to sort column ascending" 
+                                     style="width: 352px;">Category Image</th>
+
+                                     <th class="sorting" role="columnheader" tabindex="0" 
                                      aria-controls="editable-sample" rowspan="1" colspan="1" aria-label="Notes: activate to sort column ascending" 
                                      style="width: 226px;">Action</th>
                                     </tr>
@@ -56,6 +60,7 @@
                                     <td class="  sorting_1">{{$loop->iteration}}</td>
                                     
                                     <td class="center ">{{$data->category_name}}</td>
+                                    <td class="center "><img src="{{asset('media/category/'.$data->category_image)}}" alt="" width="50px" height="50px"> </td>
                                     <td>
                                         
                                     <a href="{{URL::to('edit/category/'.$data->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
@@ -99,7 +104,7 @@
                     </ul>
                 </div>
             @endif
-                        <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.category')}}" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" id="commentForm" method="post" action="{{route('store.category')}}" enctype="multipart/form-data" novalidate="novalidate">
                             @csrf
 
                 <div class="modal-body">
@@ -111,7 +116,12 @@
                     </div>
                 </div>
                 
-
+                <div class="control-group ">
+                    <label for="clogo" class="control-label">Category Image</label>
+                    <div class="controls">
+                        <input  id="clogo"  name="category_image" minlength="2" type="file" required="" placeholder="Enter Category Image.">
+                    </div>
+                </div>
 
                 </div>
                 <div class="modal-footer">

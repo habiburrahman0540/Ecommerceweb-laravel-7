@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+
 
 Auth::routes();
 
@@ -58,11 +56,19 @@ Route::get('/admin/newsletters','Admin\Category\CouponController@newsletters')->
 Route::get('/newsletters/delete/{id}','Admin\Category\CouponController@Deletenewsletters');
 //Product route
 Route::get('admin/product/all','Admin\ProductController@index')->name('all.product');
+Route::get('admin/product/settings','Admin\ProductController@ProductSettings')->name('product.setting');
 Route::get('admin/product/add','Admin\ProductController@create')->name('add.product');
 Route::get('get/subcategory/{category_id}','Admin\ProductController@subcategory');
 Route::post('/admin/product/store','Admin\ProductController@store')->name('store.product');
 Route::get('inactive/product/{id}','Admin\ProductController@inactive');
 Route::get('active/product/{id}','Admin\ProductController@active');
+Route::get('inactive/product/hotdeal/{id}','Admin\ProductController@inactivehotdeal');
+Route::get('active/product/hotdeal/{id}','Admin\ProductController@activehotdeal');
+Route::get('inactive/product/trend/{id}','Admin\ProductController@inactivetrend');
+Route::get('active/product/trend/{id}','Admin\ProductController@activetrend');
+Route::get('inactive/product/bestrated/{id}','Admin\ProductController@inactivebestrated');
+Route::get('active/product/bestrated/{id}','Admin\ProductController@activebestrated');
+
 Route::get('product/delete/{id}','Admin\ProductController@DeleteProduct');
 Route::get('product/view/{id}','Admin\ProductController@ViewProduct');
 Route::get('edit/product/{id}','Admin\ProductController@EditProduct');
@@ -86,3 +92,4 @@ Route::get('post/view/{id}','Admin\PostController@ViewPost');
 
 // All route for Frontend 
 Route::post('store/newsletter','FrontController@StoreNewsletter')->name('store.newsletter');
+Route::get('/','Frontend\HomeContentController@HomeContent');

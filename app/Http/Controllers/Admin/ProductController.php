@@ -26,6 +26,13 @@ public function index(){
                 ->get();
     return view('admin.product.index',compact('product'));
 }
+public function ProductSettings(){
+    $product = Product::join('categories','products.category_id','categories.id')
+                ->join('brands','products.brand_id','brands.id')
+                ->select('products.*','categories.category_name','brands.brand_name')
+                ->get();
+    return view('admin.product.productseettings',compact('product'));
+}
 
 public function inactive($id){
 $product= Product::where('id',$id)->update(['status'=>0]);
@@ -43,6 +50,56 @@ $notification=array(
         );
     return Redirect()->back()->with($notification);
 }
+
+
+public function inactivehotdeal($id){
+    $product= Product::where('id',$id)->update(['hot_deal'=>0]);
+    $notification=array(
+        'messege'=>'product Featured inactive successfully.',
+        'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
+    }
+    public function activehotdeal($id){
+        $product= Product::where('id',$id)->update(['hot_deal'=>1]);
+    $notification=array(
+        'messege'=>'product Featured active successfully.',
+        'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
+    }
+    public function inactivetrend($id){
+        $product= Product::where('id',$id)->update(['trend'=>0]);
+        $notification=array(
+            'messege'=>'product Trend inactive successfully.',
+            'alert-type'=>'success'
+                );
+            return Redirect()->back()->with($notification);
+        }
+        public function activetrend($id){
+            $product= Product::where('id',$id)->update(['trend'=>1]);
+        $notification=array(
+            'messege'=>'product Trend active successfully.',
+            'alert-type'=>'success'
+                );
+            return Redirect()->back()->with($notification);
+        }
+        public function inactivebestrated($id){
+            $product= Product::where('id',$id)->update(['best_rated'=>0]);
+            $notification=array(
+                'messege'=>'product best rated inactive successfully.',
+                'alert-type'=>'success'
+                    );
+                return Redirect()->back()->with($notification);
+            }
+            public function activebestrated($id){
+                $product= Product::where('id',$id)->update(['best_rated'=>1]);
+            $notification=array(
+                'messege'=>'product best rated active successfully.',
+                'alert-type'=>'success'
+                    );
+                return Redirect()->back()->with($notification);
+            }
 
 public function create(){
     $category = Category::all();

@@ -90,12 +90,11 @@
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
+													@foreach ($category as $data)
+													<li><a class="clc" href="#">{{$data->category_name}}</a></li>
+													@endforeach
+													
+													
 												</ul>
 											</div>
 										</div>
@@ -255,6 +254,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('frontend/')}}/plugins/slick-1.8.0/slick.js"></script>
 <script src="{{asset('frontend/')}}/plugins/easing/easing.js"></script>
 <script src="{{asset('frontend/')}}/js/custom.js"></script>
+<script src="{{asset('frontend/')}}/js/translate.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
    <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
@@ -278,6 +278,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       }
     @endif
  </script> 
+ <script type="text/javascript">
+	function googleTranslateElementInit() {
+	  new google.translate.TranslateElement({pageLanguage: 'en'}, 'ecommerce_translate_element');
+	}
+	</script>
 </body>
 
 </html>
