@@ -327,7 +327,15 @@
                     </div>
                 </div>
               </div>
-
+              <div class="row-fluid">
+                <div class="span4">
+                    <div class="control-group">
+                        <label class="checkbox">
+                            <div class="checker" id="uniform-undefined"><span><input type="checkbox"{{($product->buyone_getone==1)?'checked':''}} name="buyone_getone" value="1" style="opacity: 0;"></span></div>Buy one & Get one
+                        </label>
+                    </div>
+                </div>
+              </div>
                     <div class="form-actions">
                         <a href="{{route('all.product')}}" class="btn btn-warning" type="button">Back</a>
                       <button class="btn btn-primary" type="submit">Update</button>

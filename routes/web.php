@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/logout', 'HomeController@Logout')->name('logout');
+Route::get('/user/Change/Password','HomeController@ChangePassword')->name('user.password.change');
+Route::post('/user/password/update','HomeController@Update_pass')->name('user.password.update'); 
+
 Route::get('/admin/dashboard', 'AdminController@index')->name('admin.dashboard');
 Route::get('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin', 'Admin\LoginController@login')->name('admin.login.submit');
@@ -93,3 +97,10 @@ Route::get('post/view/{id}','Admin\PostController@ViewPost');
 // All route for Frontend 
 Route::post('store/newsletter','FrontController@StoreNewsletter')->name('store.newsletter');
 Route::get('/','Frontend\HomeContentController@HomeContent');
+
+
+Route::get('add/wishlist/{id}','WishlistController@addwishlist');
+Route::get('add/to/card/{id}','CardController@addCard');
+Route::get('checkcart','CardController@checkcart');
+// product route for Frontend 
+Route::get('product/details/{id}/{product_name}','ProductController@ProductView');

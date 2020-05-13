@@ -10,6 +10,7 @@ use App\Post;
 use App\Post_category;
 use App\Product;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Storage;
 use Image;
 use PhpParser\Builder\Function_;
@@ -18,6 +19,7 @@ class ProductController extends Controller
 {
     public function __construct(){
         $this->middleware('auth:admin');
+        
    }
 public function index(){
     $product = Product::join('categories','products.category_id','categories.id')
@@ -129,6 +131,7 @@ public function create(){
             $product->best_rated= $request->best_rated;
             $product->mid_slider= $request->mid_slider;
             $product->hot_new= $request->hot_new;
+            $product->buyone_getone= $request->buyone_getone;
             $product->trend= $request->trend;
             $product->status= 1;
             $image_one = $request->image_one;
@@ -215,6 +218,7 @@ $notification=array(
             $product->best_rated= $request->best_rated;
             $product->mid_slider= $request->mid_slider;
             $product->hot_new= $request->hot_new;
+            $product->buyone_getone= $request->buyone_getone;
             $product->trend= $request->trend;
             $product->status= 1;
             $image_one = $request->image_one;
